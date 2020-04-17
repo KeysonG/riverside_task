@@ -1,8 +1,5 @@
-## What is this?
 
-Just you wait folks!
-
-#To Run
+# To Run
 
 ```bash
 npm i
