@@ -21,6 +21,7 @@ mongoose.connection.on("error", (err) => {
 
 // READY?! Let's go!
 require("./models/Podcast");
+require("./models/Rating");
 
 // Start our app!
 const app = require("./app");

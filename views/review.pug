@@ -1,0 +1,17 @@
+extends layout 
+block content
+  .inner
+    div(id="myModal" class="modal fade" role="dialog")
+      form.form(action =`/thankyou`, method='POST' class='rating')
+        label(name='title') Please rate the quality of your podcast
+        fieldset.stars
+          input(type="radio" name="rating" value="5" id="star5" onclick="document.getElementById('feedback').style.display = 'none';document.getElementById('primary').disabled=false;")
+          label(for="star5" class="fa fa-star")
+          - for (var x = 4; x >= 1; x--)
+            input(type="radio" name="rating" value=x id="star" + x onclick="document.getElementById('feedback').style.display = 'block';document.getElementById('primary').disabled=false;")
+            label(for="star" + x class="fa fa-star")
+        div(class="textarea-container")
+          textarea(name="feedback" id="feedback" placeholder='Tell us more')
+        div(class='btn-container')
+          input(class="btn secondary" value="Not Now" onclick="window.location.href='http://localhost:7777/'")
+          input(class="btn" type="submit" value="Submit" id="primary" disabled="disabled")
