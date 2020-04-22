@@ -7,4 +7,5 @@ const podcastSchema = new mongoose.Schema({
   },
   title: String,
 });
+
 module.exports = mongoose.model("Podcast", podcastSchema);
