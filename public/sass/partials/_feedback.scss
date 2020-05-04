@@ -1,0 +1,22 @@
+.feedback {
+	background: white;
+	padding : 40px;
+
+	&__header {
+		font-size: 32px;
+		font-weight: bold;
+	}
+
+	&__star {
+		display: inline-block;
+		width: 32px;
+	}
+
+	&__message {
+		display: none;
+		border: 1px solid black;
+		&--open {
+			display: block;
+		}
+	}
+}

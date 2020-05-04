@@ -1122,8 +1122,23 @@ label {
 
 pre.error {
   padding: 5rem;
-  background: white;
+  background: red;
   line-height: 3;
   white-space: pre-line; }
+
+.feedback {
+  background: white;
+  padding: 40px; }
+  .feedback__header {
+    font-size: 32px;
+    font-weight: bold; }
+  .feedback__star {
+    display: inline-block;
+    width: 32px; }
+  .feedback__message {
+    display: none;
+    border: 1px solid black; }
+    .feedback__message--open {
+      display: block; }
 
 /*# sourceMappingURL=style.css.map*/

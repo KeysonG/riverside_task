@@ -1,5 +1,15 @@
 extends layout 
 block content
-  .inner
-    h3 #{title} successfully created!
-   
+	script(src="/javascripts/feedback.js")
+	.inner
+		h3 #{title} successfully created!
+
+		.feedback.feedback--open
+			form.feedback__form(method='POST', onsubmit="return onSubmitFeedback(event)")
+				.feedback__header please give us your feedback
+				.feedback__stars
+					- for (let i=0; i< 5; ++i)
+						input.feedback__star(type="radio", name="stars", onClick=`clickStar(${i})`)
+				textarea.feedback__message why?
+				input(type="submit")
+				button close
