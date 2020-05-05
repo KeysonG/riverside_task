@@ -1,0 +1,104 @@
+.feedback {
+	background: white;
+	padding : 40px;
+	position : fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	transition: opacity 300ms, transform 300ms;
+
+	&--closed {
+		opacity: 0;
+		pointer-events: none;
+		transform: translate3d(-50%, -50%, 0) translate3d(0, 40px, 0) scale(0.4);
+		.feedback__close{
+			&:before, &:after {
+				width: 0;
+			}
+		}
+	}
+	&__header {
+		font-size: 32px;
+		font-weight: bold;
+	}
+
+	&__radio {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+	&__radio:checked ~ #{&}__star {
+		fill: lightgray;
+	}
+	&__stars {
+		margin: 24px 0;
+		display: flex;
+		justify-content: center;
+	}
+	&__star {
+		fill: red;
+		display: inline-block;
+		height: 40px;
+		width: 40px;
+		margin: 0 4px;
+		cursor: pointer;
+	}
+	&__message {
+		opacity: 0;
+		height: 0;
+		margin-bottom: 0;
+		padding: 0 10px;
+		transition: opacity 150ms, height 300ms, margin 150ms, padding 300ms;
+		&--open {
+			opacity: 1;
+			height: 88px;
+			margin-bottom: 24px;
+			padding: 10px;
+		}
+	}
+	&__close {
+		$size: 48px;
+		position: absolute;
+		top: -$size / 2;
+		right: -$size / 2;
+		width: $size;
+		height: $size;
+		background: white;
+		border-radius: 50%;
+		border: none;
+		cursor: pointer;
+		transition: transform 200ms;
+		&:hover {
+			transform: rotate(90deg);
+		}
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			width: 60%;
+			height: 3px;
+			background: black;
+			top: 50%;
+			left: 50%;
+			outline: none;
+			transition: width 150ms;
+		}
+		&:before {
+			transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+		}
+		&:after {
+			transform: translate3d(-50%, -50%, 0) rotate(45deg);
+		}
+	}
+	&__submit {
+		border: none;
+		font-weight: bold;
+		cursor: pointer;
+		transition: background 100ms;
+		&:not(:disabled):hover {
+			background: #bbbbbb;
+		}
+	}
+	&__thanks {
+		display: none;
+	}
+}
